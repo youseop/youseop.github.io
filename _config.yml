@@ -69,7 +69,7 @@ rss-description: Step by step
 # Select which social network share links to show in posts
 share-links-active:
   twitter: false
-  facebook: true
+  facebook: false
   linkedin: false
   vk: false
 
@@ -98,17 +98,17 @@ navbar-text-col: "#FFFFFF"
 navbar-border-col: "#000000"
 page-col: "#FFFFFF"
 text-col: "#000000"
-link-col: "#008AFF"
+link-col: "#747474"
 hover-col: "#a79c8e"
 footer-col: "#000000"
 footer-text-col: "#FFFFFF"
-footer-link-col: "#FFFFFF"
+footer-link-col: "#BDBDBD"
 
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
 
-#navbar-img: "/assets/img/sky.jpg"
-#footer-img: "/assets/img/bgimage.png"
+navbar-img: "/assets/img/sunset.jpg"
+footer-img: "/assets/img/sunset.jpg"
 page-img: "/assets/img/whitebg.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
