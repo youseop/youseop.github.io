@@ -144,7 +144,8 @@ google_analytics: "UA-168461418-1"
 # --- Comments --- #
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-disqus: "lee youseop"
+provider: disqus
+disqus: "youseop-github-io"
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
 #fb_comment_id: ""
