@@ -107,8 +107,8 @@ footer-link-col: "#BDBDBD"
 # Alternatively, the navbar, footer, and page background can be set to an image
 # instead of colour
 
-navbar-img: "/assets/img/sunBG.JPG"
-footer-img: "/assets/img/sunBG.JPG"
+navbar-img: "/assets/img/sunsun.JPG"
+footer-img: "/assets/img/sunsun.JPG"
 page-img: "/assets/img/whitebg.png"
 
 # Suggest a colour for mobile browsers to use as the browser's theme. This is only supported by a few mobile browsers.
