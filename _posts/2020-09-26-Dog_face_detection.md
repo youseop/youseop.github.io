@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 강아지 얼굴인식
-subtitle: Python
+title: Dog face detection
+subtitle: Python - Colab
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/ML1.JPG
 share-img: /assets/img/posting/mountain.jpg
