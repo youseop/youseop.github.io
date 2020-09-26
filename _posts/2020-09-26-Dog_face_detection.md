@@ -63,8 +63,6 @@ detector를 사용해 강아지 얼굴의 위치를 찾아낸 후 predictor를 �
 
 빵형의 개발도상국 유트브 [영상](https://www.youtube.com/watch?v=yRH5by6IiEE&t=1s)에서는 루돌프 사슴 코와 뿔을 달아주는 작업을 진행했다. 이를 활용해 코와 뿔 대신 안경을 씌워주도록 코드를 약간 수정했다. 이미지는 되도록 png 확장자 파일을 사용하는 것이 좋다. jpg확장자 파일을 사용하면 사각형 이미지 전체가 덧씌워지게 된다.
 
-![Crepe](https://imgur.com/xtQdojz)
-
 ```python
 glasses = cv2.imread('/content/drive/My Drive/Deeplearning_pract/findDOGface/img/glasses2.png',  cv2.IMREAD_UNCHANGED)
 g_height, g_width= glasses.shape[:2]
@@ -73,3 +71,25 @@ plt.imshow(glasses) # 이미지를 출력해 제대로 받아졌는지 확인
 ```
 
 다음의 코드를 추가해 안경 이미지를 불러오고 확인해본다.
+
+![Crepe](https://imgur.com/xtQdojz)
+
+landmark detection한 이미지에서 강아지의 눈에 해당하는 점은 2번과 5번이다.
+따라서, 눈의 위치에 대한 정보는 shape[2]와 shape[5]에 들어있다.
+
+```python
+eye_left=shape[5]
+eye_right=shape[2]
+
+import math
+tan_val=(eye_right[1]-eye_left[1])/(eye_right[0]-eye_left[0])
+degree=math.atan(tan_val)
+
+glasses_size = horns_size // 1.1
+
+angle = -angle_between(shape[4], shape[1])
+
+M = cv2.getRotationMatrix2D((horns_w, horns_h), angle, 1)
+rotated_horns = cv2.warpAffine(horns, M, (horns_w, horns_h))
+img_result2 = overlay_transparent(img_result2,glasses,(eye_right[0]+eye_left[0]+6)//2,(eye_right[1]+eye_left[1]+20)//2,overlay_size=(int(glasses_size),int(glasses_size)))
+```
