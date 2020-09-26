@@ -108,3 +108,6 @@ M = cv2.getRotationMatrix2D((horns_w, horns_h), angle, 1)
 rotated_horns = cv2.warpAffine(horns, M, (horns_w, horns_h))
 
 ```
+
+<br>
+<br>
