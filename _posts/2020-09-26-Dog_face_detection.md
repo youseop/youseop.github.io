@@ -81,15 +81,26 @@ landmark detection한 이미지에서 강아지의 눈에 해당하는 점은 2�
 eye_left=shape[5]
 eye_right=shape[2]
 
-import math
-tan_val=(eye_right[1]-eye_left[1])/(eye_right[0]-eye_left[0])
-degree=math.atan(tan_val)
+glasses_size = np.linalg.norm(shape[5] - shape[2]) * 4
+#위에서 4는 임의로 지정한 숫자로 이 숫자를 키우면 안경의 크기가 커진다.
 
-glasses_size = horns_size // 1.1
-
-angle = -angle_between(shape[4], shape[1])
-
-M = cv2.getRotationMatrix2D((horns_w, horns_h), angle, 1)
-rotated_horns = cv2.warpAffine(horns, M, (horns_w, horns_h))
 img_result2 = overlay_transparent(img_result2,glasses,(eye_right[0]+eye_left[0]+6)//2,(eye_right[1]+eye_left[1]+20)//2,overlay_size=(int(glasses_size),int(glasses_size)))
 ```
+
+(eye_right[0]+eye_left[0]+6)//2,(eye_right[1]+eye_left[1]+20)//2
+이 값들은 임의로 정한 값이며 정확하지 않아서 사진별로 약간 안경이 뒤틀려 보일 수 있습니다...
+
+### Result
+
+마루
+
+![Crepe](https://imgur.com/EOlD5Y6)
+
+아궁이
+
+![Crepe](https://imgur.com/ljmzskj)
+
+### 개선 사항
+
+아직 강아지 눈의 기울어진 각도에 따라 안경을 기울이는 코드를 작성하지 못했다.
+기존 코드에 있는 문장들을 활용해보고, 이리저리 시도해 보았는데 수 많은 오류들 때문에 막히고 있다.
