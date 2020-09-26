@@ -3,7 +3,7 @@ layout: post
 title: 강아지 얼굴인식
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
-thumbnail-img: /assets/img/posting/ML.JPG
+thumbnail-img: /assets/img/posting/ML1.JPG
 share-img: /assets/img/posting/mountain.jpg
 tags: [딥러닝]
 comments: true
@@ -51,17 +51,17 @@ predictor=dlib.shape_predictor('/content/drive/My Drive/Deeplearning_pract/findD
 
 detector를 사용해 강아지 얼굴의 위치를 찾아낸 후 predictor를 사용해 강아지의 눈,코, 귀 그리고 정수리까지 총 6개의 점을 탐지한다.
 
-### dog head detector
+### Dog head detector
 
 ![Crepe](https://i.imgur.com/ODPJaFI.jpg)
 
-### landmark detector
+### Landmark detector
 
 ![Crepe](https://i.imgur.com/z0BnFwd.jpg)
 
 ### Add glasses
 
-빵형의 개발도상국 유트브 [영상](https://www.youtube.com/watch?v=yRH5by6IiEE&t=1s)에서는 루돌프 사슴 코와 뿔을 달아주는 작업을 진행했다. 이를 활용해 코와 뿔 대신 안경을 씌워주도록 코드를 약간 수정했다. 이미지는 되도록 png 확장자 파일을 사용하는 것이 좋다. jpg확장자 파일을 사용하면 사각형 이미지 전체가 덧씌워지게 된다.
+빵형의 개발도상국 유트브 [영상](https://www.youtube.com/watch?v=yRH5by6IiEE&t=1s)에서는 루돌프 사슴 코와 뿔을 달아주는 작업을 진행했다. 이를 활용해 코와 뿔 대신 안경을 씌워주도록 코드를 약간 수정했다. 이미지는 되도록 png 확장자 파일을 사용하는 것을 추천한다. jpg확장자 파일을 사용하면 사각형 이미지 전체가 덧씌워지게 된다.
 
 ```python
 glasses = cv2.imread('/content/drive/My Drive/Deeplearning_pract/findDOGface/img/glasses2.png',  cv2.IMREAD_UNCHANGED)
@@ -70,11 +70,11 @@ print(g_height,g_width) #png파일의 높이 너비 확인
 plt.imshow(glasses) # 이미지를 출력해 제대로 받아졌는지 확인
 ```
 
-다음의 코드를 추가해 안경 이미지를 불러오고 확인해본다.
+다음의 코드를 추가해 안경 이미지를 불러오고 확인해보자.
 
 ![Crepe](https://i.imgur.com/xtQdojz.jpg)
 
-landmark detection한 이미지에서 강아지의 눈에 해당하는 점은 2번과 5번이다.
+Landmark detection한 이미지에서 강아지의 눈에 해당하는 점은 2번과 5번이다.
 따라서, 눈의 위치에 대한 정보는 shape[2]와 shape[5]에 들어있다.
 
 ```python
@@ -90,17 +90,21 @@ img_result2 = overlay_transparent(img_result2,glasses,(eye_right[0]+eye_left[0]+
 (eye_right[0]+eye_left[0]+6)//2,(eye_right[1]+eye_left[1]+20)//2
 이 값들은 임의로 정한 값이며 정확하지 않아서 사진별로 약간 안경이 뒤틀려 보일 수 있습니다...
 
-### Result
-
-마루
+### 마루
 
 ![Crepe](https://i.imgur.com/EOlD5Y6.jpg)
 
-아궁이
+### 아궁이
 
 ![Crepe](https://i.imgur.com/ljmzskj.jpg)
 
-### 개선 사항
+## 개선 사항
 
 아직 강아지 눈의 기울어진 각도에 따라 안경을 기울이는 코드를 작성하지 못했다.
 기존 코드에 있는 문장들을 활용해보고, 이리저리 시도해 보았는데 수 많은 오류들 때문에 막히고 있다.
+
+```python
+M = cv2.getRotationMatrix2D((horns_w, horns_h), angle, 1)
+rotated_horns = cv2.warpAffine(horns, M, (horns_w, horns_h))
+
+```
