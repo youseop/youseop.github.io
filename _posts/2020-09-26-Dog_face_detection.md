@@ -35,7 +35,7 @@ img = cv2.imread(img_path)
 
 ### 이미지 불러오기
 
-![Crepe](https://imgur.com/uP9WzGi)
+![Crepe](https://i.imgur.com/uP9WzGi.jpg)
 
 원하는 이미지를 구글 드라이브에 업로드한 후 코드에서 img_path 경로 부분만 수정해주면 작동 될 것이다. 오류가 생긴다면 경로가 올바른지 혹은 마운트가 제대로 되었는지 확인해보자.
 
@@ -53,11 +53,11 @@ detector를 사용해 강아지 얼굴의 위치를 찾아낸 후 predictor를 �
 
 ### dog head detector
 
-![Crepe](https://imgur.com/ODPJaFI)
+![Crepe](https://i.imgur.com/ODPJaFI.jpg)
 
 ### landmark detector
 
-![Crepe](https://imgur.com/z0BnFwd)
+![Crepe](https://i.imgur.com/z0BnFwd.jpg)
 
 ### Add glasses
 
@@ -72,7 +72,7 @@ plt.imshow(glasses) # 이미지를 출력해 제대로 받아졌는지 확인
 
 다음의 코드를 추가해 안경 이미지를 불러오고 확인해본다.
 
-![Crepe](https://imgur.com/xtQdojz)
+![Crepe](https://i.imgur.com/xtQdojz.jpg)
 
 landmark detection한 이미지에서 강아지의 눈에 해당하는 점은 2번과 5번이다.
 따라서, 눈의 위치에 대한 정보는 shape[2]와 shape[5]에 들어있다.
@@ -94,11 +94,11 @@ img_result2 = overlay_transparent(img_result2,glasses,(eye_right[0]+eye_left[0]+
 
 마루
 
-![Crepe](https://imgur.com/EOlD5Y6)
+![Crepe](https://i.imgur.com/EOlD5Y6.jpg)
 
 아궁이
 
-![Crepe](https://imgur.com/ljmzskj)
+![Crepe](https://i.imgur.com/ljmzskj.jpg)
 
 ### 개선 사항
 
