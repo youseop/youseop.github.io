@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dog face detection
+title: ML-Dog face detection
 subtitle: Python - Colab
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/ML1.JPG
