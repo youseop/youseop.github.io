@@ -5,7 +5,7 @@ subtitle: Python - Colab
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/ML1.JPG
 share-img: /assets/img/posting/mountain.jpg
-tags: [딥러닝]
+tags: [DeepLearning]
 comments: true
 ---
 
