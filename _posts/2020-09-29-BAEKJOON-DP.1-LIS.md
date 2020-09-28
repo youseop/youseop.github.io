@@ -88,6 +88,49 @@ print(max(dp))
 
 ## [#11054 가장 긴 바이토닉 부분 수열](https://www.acmicpc.net/problem/11054)
 
+#11053을 위와 같이 풀었으면 이 문제는 간단히 응용만 해주면 된다.
+
+- 입력받은 리스트에서 각 숫자의 왼쪽과 오른쪽으로 구역을 나누어 증가하는 가장 긴 수열을 구해줄 것이다.
+- 오른쪽 구역에서는 감소하는 가장 긴 수열을 찾아야 하기 때문에 먼저 리스트를 뒤집은 후 DP_right에 다 저장했으면 이 결과를 다시 뒤집는 과정을 거친다.
+- DP_left와 DP_right에 저장된 값들을 서로 더하면 가장 긴 바이토닉 수열의 길이를 얻을 수 있다.
+- DP_left와 DP_right를 구하는 과정에서 가운데 기준이 되는 숫자가 두번 중복되어 포함되었음으로 1을 빼준다.
+- 구해진 바이토닉 수열 값들 중 최대값을 출력한다.
+
+```python
+import sys
+n=int(input())
+number=list(map(int,sys.stdin.readline().split()))
+# 해당 숫자의 왼쪽 - 가장 긴 증가하는 수열 탐색
+DP_left=list(0 for _ in range(n))
+DP_left[0]=1
+
+for i in range(1,n):
+    for j in range(i):
+        if number[j]<number[i] and DP_left[j]>DP_left[i]:
+            DP_left[i]=DP_left[j]
+    DP_left[i]+=1
+# 해당 숫자의 오른쪽 - 가장 긴 증가하는 수열 탐색(Reverse)
+DP_right=list(0 for _ in range(n))
+DP_right[0]=1
+#리스트를 뒤집어 준다.
+number=number[::-1]
+
+for i in range(1,n):
+    for j in range(i):
+        if number[j]<number[i] and DP_right[j]>DP_right[i]:
+            DP_right[i]=DP_right[j]
+    DP_right[i]+=1
+#뒤집은 후 증가 수열을 구했기 때문에 다시 뒤집어준다.
+DP_right=DP_right[::-1]
+
+bitonic=0
+for i in range(n):
+    tmp=DP_right[i]+DP_left[i]-1
+    if tmp>bitonic:
+        bitonic=tmp
+print(bitonic)
+```
+
 [다시 풀어보기]
 <br>
 <br>
