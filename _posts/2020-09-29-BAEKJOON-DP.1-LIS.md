@@ -131,6 +131,21 @@ for i in range(n):
 print(bitonic)
 ```
 
+DP 문제들을 풀며 다른 분들의 블로그들을 많이 참고했는데, 기록할겸 링크로 남겨둬야겠다.
+[DP의 기본에 대해서...](https://stonejjun.tistory.com/23)
+[좋은 DP 문제들 추천](https://stonejjun.tistory.com/24)
+[Knapsack Problem](https://dojinkimm.github.io/algorithm/2019/10/19/dp-2.html)
+
+## DP 대표 유형
+
+- Knapsack Problem
+- Longest Common Sequence
+- Longest Increasing Subsequence (완료)
+- Edit distance
+- Matrix Chain Multiplication
+
+이번 주에는 이 유형들에 대해 다뤄볼 예정이다.
+
 [다시 풀어보기]
 <br>
 <br>
