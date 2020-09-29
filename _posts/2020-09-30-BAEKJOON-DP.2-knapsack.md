@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Knapsack Problem 평범한 배낭
+title: BAEKJOON#12865 평범한 배낭
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/baekjoonrect.png
@@ -9,7 +9,7 @@ tags: [DP, BAEKJOON]
 comments: true
 ---
 
-## [Knapsack Problem-DP-#12865](https://www.acmicpc.net/problem/12865)
+## [평범한 배낭](https://www.acmicpc.net/problem/12865)
 
 LIS - Longest Increasing Subsequence에 이어 계속해서 DP 대표적인 문제들에 대해 알아보자.
 Knapsack Problem은 크게 두가지 유형으로 나뉜다. 배낭에 들어가는 물건을 잘게 쪼갤 수 있는경우와 그렇지 않은 경우다. 전자의 경우 Greedy 알고리즘을 적용하면 쉽게 풀리며, 후자의 경우는 DP를 사용해야한다. 먼저 후자의 경우인 백준 12865번 문제를 풀어보자.
