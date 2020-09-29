@@ -37,6 +37,8 @@ for i in range(n):
 print(max(sack))
 ```
 
+### _print(sack)_ 에 해당하는 출력
+
 ```
 [0, 0, 0, 6, 6, 6, 6, 6]
 [0, 0, 0, 6, 8, 8, 8, 14]
@@ -91,6 +93,8 @@ for i in range(n):
     print(sack)
 print(max(sack))
 ```
+
+### _print(sack)_ 에 해당하는 출력
 
 ```
 [0, 0, 0, 6, 6, 6, 12, 12]
