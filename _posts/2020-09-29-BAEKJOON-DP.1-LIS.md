@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LIS - Longest Increasing Subsequence
+title: BAEKJOON#11053 가장 긴 증가하는 부분 수열
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/baekjoonrect.png
@@ -9,7 +9,7 @@ tags: [DP, BAEKJOON]
 comments: true
 ---
 
-## [#11053 가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053)
+## [가장 긴 증가하는 부분 수열](https://www.acmicpc.net/problem/11053)
 
 LIS - Longest Increasing Subsequence 관련 문제 #11053, #11054에 대해 다뤄보자.
 
