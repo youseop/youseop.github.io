@@ -115,6 +115,14 @@ print(max(sack))
 
 ## [Knapsack Problem-Greedy](https://en.wikipedia.org/wiki/Knapsack_problem)
 
+Knapsack Problem의 또다른 유형으로 전자였던 물건을 쪼갤 수 있는 경우가 있다.
+이 문제같은 경우에는 입력받은 짐의 무게와 가치 값들을 무게 대비 가치가 높은 순으로 정렬시켜 준 후 차례대로 배낭에 넣으면 된다.
+
+_things.sort(key=lambda x : -x[1]/x[0])_
+무게대비 가치를 오름차순으로 정렬하기 위해 '-'를 붙여주었다.
+
+배낭에 물건을 넣을 때 제한 무게를 초과하게 되는 경우 추가로 넣을 수 있는 무게만큼만 더 쪼개서 넣은 후 이후의 값들은 버리면 된다.
+
 ```python
 import sys
 n,k=map(int,sys.stdin.readline().split())
