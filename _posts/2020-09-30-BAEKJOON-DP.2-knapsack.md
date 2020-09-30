@@ -162,6 +162,78 @@ for w,v in things:
 print(val)
 ```
 
+## [Knapsack Problem 응용 - #7579 앱](https://www.acmicpc.net/problem/7579)
+
+knapsack Problem 응용문제도 추가로 풀어봤다. 이 문제는 휴대폰의 저장공간을 확보하기 위한 최소 비용을 구하는 문제다. 가방에서 저장공간으로 단어만 바뀌었을 뿐 근본적으로는 처음에 다루었던 knapsack문제와 거의 비슷한 문제다.
+
+#12865 평범한 배낭 문제와 같은 방법으로 처음에 접근을 했지만, 시간초과가 발생했다.
+이 문제에서 저장공간으로 주어지는 M의 범위가 1 <= M <= 10,000,000이었고, 최대 10,000,001 길이를 가진 배열을 만들어 값을 집어넣는 과정을 거쳐야 했기에 시간초과가 발생했던것 같다.
+
+### Failed code
+
+```python
+import sys
+n,m=map(int,sys.stdin.readline().split())
+apps=list(map(int,sys.stdin.readline().split()))
+memorys=list(map(int,sys.stdin.readline().split()))
+
+k=sum(apps)-m
+
+kill=list(0 for _ in range(k+1))
+for app,memory in zip(apps,memorys):
+    for j in range(k-app,-1,-1):
+        kill[j+app]=max(kill[j+app],memory+kill[j])
+    print(kill) #배열 출력하기 위해 추가로 입력
+print(sum(memorys)-max(kill))
+```
+
+위의 코드를 실행시켜 보면 입력 제한 대비 굉장히 작은 두 자리수의 입력임에도 불구하고 굉장히 긴 리스트들이 출력된다.
+
+![Crepe](https://i.imgur.com/sAcrHXI.jpg)
+
+그래서 범위가 비교적 작은 N - 앱을 비활성화 했을 경우의 비용을 기준으로 배열을 만들었다.
+
+```python
+import sys
+n,m=map(int,sys.stdin.readline().split())
+apps=list(map(int,sys.stdin.readline().split()))
+memorys=list(map(int,sys.stdin.readline().split()))
+
+#k=m/(sum(apps)/sum(memorys))
+#k=int(k)+1     #시간 효율을 개선하기위해 노력한 흔적 (성공하진 못햇다.)
+k=sum(memorys)+1
+
+kill=list(0 for _ in range(k+1))
+for app,memory in zip(apps,memorys):
+    for j in range(k-memory,-1,-1):
+        kill[j+memory]=max(app+kill[j],kill[j+memory])
+    print(kill) #배열 출력하기 위해 추가로 입력
+
+for index,val in enumerate(kill):
+    if val>=m:
+        print(index)
+        break
+```
+
+이 코드를 실행시키면 방금 전 코드 대비 굉장히 깔끔하고 짧은 배열들을 얻을 수 있다.
+
+```
+[0, 0, 0, 30, 30, 30, 30, 30, 30]
+[10, 10, 10, 40, 40, 40, 40, 40, 40]
+[10, 10, 10, 40, 40, 40, 60, 60, 60]
+[10, 10, 10, 40, 40, 45, 60, 60, 75]
+[10, 10, 10, 40, 50, 50, 60, 80, 80]
+[10, 10, 20, 40, 50, 50, 60, 80, 80]
+[10, 10, 20, 40, 50, 50, 60, 80, 80]
+[10, 10, 20, 50, 50, 60, 80, 90, 90]
+```
+
+첫번째로 풀었던 평범한 배낭 문제와의 차이점에 대해 알아보자.
+
+- 배열을 물건의 무게(메모리)를 기준으로 생성하지 않고 가치(비활성화 했을 경우의 비용)를 기준으로 생성했다.
+- M 바이트를 확보하기 위한 앱 비활성화의 '최소' 비용을 계산해야 했기 때문에 'kill'배열의 왼쪽부터 나가면서 M보다 같거나 큰 값을 지니고 있는 값을 탐색해나갔다.
+  -M 바이트 보다 같거나 큰 값을 지니고 있는 항을 찾았으면 그 항의 index를 출력하고 break해 for문을 탈출한다.
+
 ### DP 대표 유형
 
 - Knapsack Problem (완료)
