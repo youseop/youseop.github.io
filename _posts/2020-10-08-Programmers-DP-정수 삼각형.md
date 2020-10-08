@@ -11,70 +11,55 @@ comments: true
 
 ## [정수 삼각형](https://programmers.co.kr/learn/courses/30/lessons/43105?language=python3)
 
-GCD, LCM - 최대공약수와 최소공배수라는 간단해보이는 문제를 가져와 보았다. 얼핏 보면 초등학생도 풀 수 있는 간단한 문제지만 유클리드 알고리즘을 소개하기 위해 다루기로 했다.
+백준 16236번 아기상어를 포스팅 할 예정이었지만, 거의 다 온 것 같으면서도 이상하게 풀리지가 않아 내일로 미뤄졌다.
 
-유클리드 알고리즘을 접하기 전에는 두 수 중에서 작은 수를 찾고, 해당 수 부터 2 까지 for문을 돌리며 최대공약수를 찾았다. 이 방법도 맞지만, 주어지는 두 수가 커지면 연산량이 급격하게 증가한다는 단점이 있다. 이때, 유클리드 알고리즘(유클리드 호제법)을 활용하면 시간복잡도를 줄일 수 있다.
-
-_유클리드 호제법_
-
-정수 a,b에 대해서 a를 b로 나눈 나머지가 r이라고 할때, a와 b의 최대공약수를 (a,b)라고 하면
-
-#### (a,b) = (b,r)
-
-이 성립한다.[증명](https://ko.wikipedia.org/wiki/%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C_%ED%98%B8%EC%A0%9C%EB%B2%95)
-
-유클리드 알고리즘(유클리드 호제법) [예시](https://ko.wikipedia.org/wiki/%EC%9C%A0%ED%81%B4%EB%A6%AC%EB%93%9C_%ED%98%B8%EC%A0%9C%EB%B2%95)를 보며 이해해보자.
-78696과 19332에 대한 최대공약수를 찾는 과정이다.
+프로그래머스 사이트에서 푼 DP 문제 정수 삼각형에 대해 알아보자.
 
 ```
-78696 ＝ 19332×4 ＋ 1368
-19332 ＝ 1368×14 ＋ 180
-1368  ＝ 180×7   ＋ 108
-180   ＝ 108×1   ＋ 72
-108   ＝ 72×1    ＋ 36
-72    ＝ 36×2    ＋ 0
+[[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]
 ```
 
-이를 위의 표현으로 정리하면
-(78696,19332) = (19332,1368) = (1368,180) = (180,108) = (108,72) = (72,36) = (36,0)
-으로 최대공약수는 36이다.
+다음과 같이 위에서 부터 차례대로 1개, 2개, 3개 ... 로 주어지는 삼각형 모양의 수들에 대해서 꼭대기부터 바닥까지 거쳐간 숫자의 최대값을 구하는 문제이다.
 
-이 방식을 스왑을 이용해 코드로 구현해보자.
+그림을 통해 알아보자.
 
-- x, y = y, x%y 를 통해 (a,b) = (b,r)를 구현한다.
-- 위의 과정을 y가 0이 될 때 까지 반복한다.
-- y가 0일 때의 x 값이 바로 최대공약수이다.
-
-```python
-def GCD(x,y):
-    while(y):
-        x,y=y,x%y
-    return x
-```
-
-최대공약수를 구했으니 이제 최소공배수에 대해 알아보자.
-C라는 최대공약수를 가지는 두 수 A,B가 있을 때, 최소공배수는 A*C*B임을 쉽게 알 수 있다. 따라서 두 수를 곱한 후 최대공약수를 나누어주면 최소공배수는 쉽게 구할 수 있다!
+![Crepe](https://i.imgur.com/VNI6h9r.jpg)
 
 <br>
 
 ### CODE
 
 ```python
-import sys
+def solution(triangle):
+    answer = 0
+    n=len(triangle)
+    save=list(list(0 for _ in range(n)) for _ in range(n))
+    save[0][0]=triangle[0][0]
 
-def GCD(x,y):
-    while(y):
-        x,y=y,x%y
-    return x
+    for i in range(1,n):
+        for j in range(i+1):
+            if j==0:
+                save[i][j]=save[i-1][j]+triangle[i][j]
+            elif j==i:
+                save[i][j]=save[i-1][i-1]+triangle[i][j]
+            else:
+                save[i][j]=max(triangle[i][j]+save[i-1][j],triangle[i][j]+save[i-1][j-1])
 
-for _ in range(int(input())):
-    tmp = list(map(int,sys.stdin.readline().split()))
-    tmp.sort()
-    a=tmp[0]
-    b=tmp[1]
-    gcd=GCD(a,b)
-    print(a*b//gcd)
+    print(save[-1])
+    answer=max(save[-1])
+
+    return answer
 ```
+
+DP 대표유형 5가지를 다뤄보기로 했었는데 아직 Edit distance 유형을 끝내지 못했다. 이번 주 내로 다뤄봐야겠다.
+
+### DP 대표 유형
+
+- [Knapsack Problem](https://youseop.github.io/2020-09-30-BAEKJOON-DP.2-knapsack/) (완료)
+- [Longest Common Sequence](https://youseop.github.io/2020-10-01-BAEKJOON-9251-LCS/) (완료)
+- [Longest Increasing Subsequence](https://youseop.github.io/2020-09-29-BAEKJOON-DP.1-LIS/) (완료)
+- Edit distance
+- [Matrix Chain Multiplication](https://youseop.github.io/2020-10-02-BAEKJOON-11049-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%85%88%EC%88%9C%EC%84%9C/) (완료)
 
 <br>
 
