@@ -242,6 +242,6 @@ for index,val in enumerate(kill):
 - Edit distance
 - Matrix Chain Multiplication
 
-[다시 풀어보기]
-<br>
-<br>
+  2020.10.15 ✔
+  <br>
+  <br>
