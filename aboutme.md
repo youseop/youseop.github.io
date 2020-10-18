@@ -16,5 +16,5 @@ Please use TAG in the bottom of post
 
 #### Nav
 
-- Still preparing.
+- BOJ TestCase : Making site that people can search TestCase when they have some problem in their code. (Practice React JS & Firebase.)
 - Responsive page : practice responsive css with photos from Mim the wardrobe website
