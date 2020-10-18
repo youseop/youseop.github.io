@@ -17,7 +17,7 @@ navbar-links:
   About Me: "aboutme"
   Resources:
     - Responsive page: "https://bluprint-3.youseop.repl.co/"
-    - Preparing: ""
+    - BOJ TestCase: "https://youseop.github.io/BOJ_TESTCASE/#/"
   Author's home: ""
 
 # --- Logo --- #
