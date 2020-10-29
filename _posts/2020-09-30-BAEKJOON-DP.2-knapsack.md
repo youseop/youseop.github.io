@@ -236,12 +236,13 @@ for index,val in enumerate(kill):
 
 ### DP 대표 유형
 
-- Knapsack Problem (완료)
-- Longest Common Sequence
+- [Knapsack Problem](https://youseop.github.io/2020-09-30-BAEKJOON-DP.2-knapsack/) (완료)
+- [Longest Common Sequence](https://youseop.github.io/2020-10-01-BAEKJOON-9251-LCS/) (완료)
 - [Longest Increasing Subsequence](https://youseop.github.io/2020-09-29-BAEKJOON-DP.1-LIS/) (완료)
-- Edit distance
-- Matrix Chain Multiplication
+- [Edit distance](https://youseop.github.io//2020-10-10-BAEKJOON-7620-%ED%8E%B8%EC%A7%91%EA%B1%B0%EB%A6%AC/)(완료)
+- [Matrix Chain Multiplication](https://youseop.github.io/2020-10-02-BAEKJOON-11049-%ED%96%89%EB%A0%AC%EA%B3%B1%EC%85%88%EC%88%9C%EC%84%9C/) (완료)
 
-  2020.10.15 ✔
-  <br>
-  <br>
+✔ - 2020.10.15
+✔ - 2020.10.29
+<br>
+<br>
