@@ -89,7 +89,7 @@ queries = ["fr?","????"]
 
 - 먼저 "frod"를 insert하자.
 
-![Crepe](https://i.imgur.com/VNI6h9r.jpg)
+![Crepe](https://i.imgur.com/qH50KTa.jpg)
 
 - insert("fry")
 
