@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BAEKJOON#14425 문자열 집합
+title: Programmers#KAKO 가사 검색
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/Programmers.png
