@@ -5,7 +5,7 @@ subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/Programmers.png
 share-img: /assets/img/posting/mountain.jpg
-tags: [trie, BAEKJOON]
+tags: [trie, Programmers]
 comments: true
 ---
 
