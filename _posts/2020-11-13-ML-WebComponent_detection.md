@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SON Detection
+title: Web Component Detection
 subtitle: Python - Colab
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/ML1.JPG
@@ -9,7 +9,7 @@ tags: [DeepLearning]
 comments: true
 ---
 
-## [ML - webcomponent detection](https://github.com/youseop/WebComponent_Detection)
+## [ML - Web Component Detection](https://github.com/youseop/WebComponent_Detection)
 
 ![Crepe](https://user-images.githubusercontent.com/66366941/98974574-695d3d00-2558-11eb-8a23-f6bcef7f4aff.JPG)
 
