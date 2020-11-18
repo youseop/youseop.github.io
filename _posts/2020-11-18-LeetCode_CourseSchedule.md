@@ -3,13 +3,15 @@ layout: post
 title: LeetCode - Course Schedule
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
-thumbnail-img: /assets/img/posting/leet.png
+thumbnail-img: https://i.imgur.com/7TKSpik.png
 share-img: /assets/img/posting/mountain.jpg
 tags: [BFS, LeetCode]
 comments: true
 ---
 
 ## [Course Schedule](https://leetcode.com/problems/course-schedule/)
+
+<br>
 
 - To take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
 - Input: numCourses = 3, prerequisites = [[1,0],[1,2],[0,2]]
@@ -52,6 +54,8 @@ while point:
             if tmp_point == list(point):
                 break
 ```
+
+<br>
 
 ### CODE
 
