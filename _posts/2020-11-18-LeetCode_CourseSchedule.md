@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LeetCode - Course Schedule
+title: LeetCode Course Schedule
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: https://i.imgur.com/7TKSpik.png
