@@ -13,7 +13,9 @@ comments: true
 
 <br>
 
-[Go to git repository](https://github.com/youseop/ananbada_second/blob/main/README.md)
+### [아나바다 - webpage](http://wakgoodie.shop/)
+
+### [아나바다 - git repository](https://github.com/youseop/ananbada_second/blob/main/README.md)
 
 12월 9일부터, 12월 11일 13시까지 홍지님, 민규님과 함께 아나바다 서비스를 만들었다.
 
@@ -29,7 +31,6 @@ comments: true
 
 - 게시글 오른쪽 하단에 있는 아이디를 클릭하면, 해당 유저의 페이지로 이동하도록 했다.
 
-### [아나바다_click!](http://wakgoodie.shop/)
 
 <br>
 
