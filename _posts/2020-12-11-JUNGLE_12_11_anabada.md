@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JUNGLE#1 아나바다ㅓㅕ
+title: JUNGLE#1 아나바다
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/jungle.png
@@ -28,6 +28,8 @@ comments: true
 - 또한, 카카오 API를 활용해 사용자의 위치 정보를 받고, 해당 사용자가 몇 km 떨어져 있는지 계산해 주었다.
 
 - 게시글 오른쪽 하단에 있는 아이디를 클릭하면, 해당 유저의 페이지로 이동하도록 했다.
+
+### [아나바다_click!](http://wakgoodie.shop/)
 
 <br>
 
