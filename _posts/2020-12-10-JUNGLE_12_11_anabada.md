@@ -1,7 +1,7 @@
 ---
 layout: post
 title: JUNGLE#1 아나바다
-subtitle: Python
+subtitle: Web
 cover-img: /assets/img/posting/mountain.jpg
 thumbnail-img: /assets/img/posting/jungle.png
 share-img: /assets/img/posting/mountain.jpg
@@ -9,9 +9,22 @@ tags: [기록🎉, Jungle, WEB]
 comments: true
 ---
 
-## 아나바다
+## 0주차 미니 프로젝트
 
+### 필수 포함 사항
+
+- 로그인 기능 (쿠키/세션이란?)
+- Jinja2 템플릿 엔진을 이용한 서버사이드 렌더링 (어떤 장점이 있을까?)
+
+### 더 고민해볼 키워드
+
+- Bootstrap을 대체할 CSS 라이브러리 사용하기 (Bulma 등)
+- JWT 인증 방식으로 로그인을 구현하기 (등장하게 된 배경은?)
+- nginx, gunicorn으로 웹서버 구동하기 (nginx, gunicorn의 역할은?)
+---
 <br>
+
+## 아나바다
 
 ### [아나바다 - webpage](http://wakgoodie.shop/)
 
