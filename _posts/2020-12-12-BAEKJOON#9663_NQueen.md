@@ -11,7 +11,8 @@ comments: true
 
 ## [N-Queen](https://www.acmicpc.net/problem/9663)
 
-*pypy3 - 3352ms, python3 - 시간초과*
+![Crepe](https://i.imgur.com/pTvd40m.jpg)
+- 비트 연산자를 사용하고, 대칭성을 이용해 첫째 줄에서는 절반까지 탐색하도록 해서 결국 풀 수 있었다. 유독 시간제한이 심하게 빡빡한 것 같다.
 
 <br>
 
@@ -100,11 +101,11 @@ print(answer)
 
 ---
 
-## 비트연산자 사용
+## 개선 1 - 비트 연산자 사용
 
 - 비트연산자가 아직 생소하다면 [11723-집합](https://www.acmicpc.net/problem/11723)문제를 먼저 풀어보자.
 
-비트연산자를 사용해 시간복잡도를 줄일 수 있다.
+비트 연산자를 사용해 시간 복잡도를 줄일 수 있다.
 
 아래와 같이 이진수에 해당 칸에 퀸을 배치할 수 있는지 없는지 저장하자.
 예를 들어서 (0,2)에 Queen이 배치된다면, left, center, right에 (1 << 2)가 더해진다. 
@@ -146,6 +147,92 @@ n = int(input())
 dfs(0,0,0,0)
 
 print(answer)
+```
+
+<br>
+
+---
+
+## 개선 2 - 대칭성 이용
+
+비트 연산자를 써도 시간 초과가 발생했다.
+마지막 방법으로 대칭성을 이용해 첫 줄에서 퀸의 위치를 절반만 탐색하도록 했다.
+
+![Crepe](https://i.imgur.com/L3sRspm.jpg)
+
+위의 그림에서 1번 칸에 퀸이 놓였을 때 체스판에 퀸을 배치할 수 있는 경우의 수와 2번 칸에 퀸이 놓였을 때의 경우의 수는 동일하다. 좌우 대칭임으로 항상 동일하다고 할 수 있다. 같은 이유로 2와 5, 3과 4에 퀸이 놓였을 때도 경우의 수가 동일하다.
+
+따라서, 첫 줄에 한해서 퀸의 위치를 절반만 탐색하고 이를 통해 얻은 경우의 수에 두 배를 해주면 퀸을 배치할 수 있는 경우의 수를 얻을 수 있다.
+
+![Crepe](https://i.imgur.com/YBDY6aG.jpg)
+
+n이 홀수일 때는 계산을 한 번 더 해주어야 한다. 
+n이 짝수일 때와 마찬가지로 1과 5, 2와 4는 경우의 수가 동일하지만 3이 남는다.
+따라서 홀수일 때는 첫 줄 중앙에 위치한 칸에 퀸이 위치할 때의 경우의 수를 추가로 더해주어야 한다.
+
+<br>
+
+### CODE - 대칭성 이용
+
+```python
+import sys
+read=sys.stdin.readline
+
+def dfs(left, center, right,cnt):
+    global answer
+    if cnt== n:
+        answer += 2
+        return
+    left  >>= 1
+    right <<= 1
+    board = center | right | left
+    if board&full==full:
+        return
+    if cnt ==0:
+        for i in range(n//2):
+            bit = 1 << i
+            if not(board & bit):
+                dfs(left | bit , center | bit , right | bit , cnt+1)
+        return
+    for i in range(n):
+        bit = 1 << i
+        
+        if not(board & bit):
+            dfs(left | bit , center | bit , right | bit , cnt+1)
+    return
+
+def dfs_odd(left, center, right,cnt):
+    global answer
+    if cnt== n:
+        answer += 1
+        return
+    left  >>= 1
+    right <<= 1
+    board = center | right | left
+    if board&full==full:
+        return
+    if cnt ==0:
+        bit = 1 << (n//2)
+        if not(board & bit):
+            dfs_odd(left | bit , center | bit , right | bit , cnt+1)
+        return
+    for i in range(n):
+        bit = 1 << i
+        
+        if not(board & bit):
+            dfs_odd(left | bit , center | bit , right | bit , cnt+1)
+    return
+
+answer = 0
+n = int(input())
+full = (1<<n)-1
+dfs(0,0,0,0)
+
+if n%2 == 0:
+    print(answer)
+else:
+    dfs_odd(0,0,0,0)
+    print(answer)
 ```
 
 <br>
