@@ -42,10 +42,12 @@ comments: true
 ```python
 def bfs(left, center, right,cnt):
     global answer
+    #n개의 queen을 모두 배치했으면, 재귀 탈출
     if cnt== n:
         answer += 1
         return
-
+    #left성분들은 한 칸 왼쪽으로, 
+    #right성분들은 한 칸 오른쪽으로 이동시켜 준다.
     for i in range(cnt):
         left[i] -= 1
         right[i] += 1
@@ -53,6 +55,7 @@ def bfs(left, center, right,cnt):
     for i in range(n):
         if i not in left and check[i] and i not in right:
             check[i]=False
+            #다음칸으로 이동
             bfs(left+[i], center+[i], right+[i], cnt+1)
             check[i]=True
     return
@@ -132,18 +135,25 @@ def dfs(left, center, right,cnt):
     #왼쪽 대각선, 오른쪽 대각선 성분을 양옆으로 한 칸씩 이동시킨다.
     right  >>= 1
     left <<= 1
+    #center,right,left를 합쳐,
+    #현재 줄에서 퀸을 배치할 수 없는 칸을 구한다.
+    board = center | right | left
+    #배치할 수 있는 곳이 없으면 탐색을 종료한다.
+    if board&full==full:
+        return
+
     for i in range(n):
         #i 번째 칸에 퀸을 놓을 예정이다.
         bit = 1 << i
         
-        if not((center|(left|right)) & bit):
+        if not(board & bit):
             #퀸을 배치한 자리에 1을 추가하고 다음 칸으로 넘어간다.
-            # '|' == 'or'
             dfs(left | bit , center | bit , right | bit , cnt+1)
     return
 
 answer = 0
 n = int(input())
+full = (1<<n)-1 #칸이 가득 차있는 경우를 확인하기 위한 변수
 dfs(0,0,0,0)
 
 print(answer)
