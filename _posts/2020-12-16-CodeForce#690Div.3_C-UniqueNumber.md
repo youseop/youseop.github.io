@@ -3,7 +3,7 @@ layout: post
 title: CodeForce#690Div.3 C-UniqueNumber
 subtitle: Python
 cover-img: /assets/img/posting/mountain.jpg
-thumbnail-img: /assets/img/posting/codeforce.jpg
+thumbnail-img: /assets/img/codeforce.jpg
 share-img: /assets/img/posting/mountain.jpg
 tags: [DFS, CodeForce]
 comments: true
