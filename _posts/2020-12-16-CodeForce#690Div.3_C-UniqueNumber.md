@@ -15,8 +15,6 @@ comments: true
 
 Div(1~3) 별로 난이도가 나뉘는데 이중 제일 쉬운 Div3를 시도해 봤다.
 
-[##_Image|kage@mBeGJ/btqQhKAu9OR/iXPBzlyteSw6Xyaq2OhzBk/img.png|alignCenter|data-origin-width="0" data-origin-height="0" width="535" height="NaN" data-ke-mobilestyle="widthContent"|Codeforces Round #690 (Div.3)||_##]
-
 총 일곱문제가 출제되었고, 이중 3문제 밖에 풀지 못했다.
 
 첫 시도 치고 나쁘지 않은 것 같지만, 앞으로 자극받고 더 열심히 공부하는 계기로 삼아야겠다. 문제 난이도는 그렇게 어렵다고 느껴지진 않았다. 내 실력이 부족할 뿐...
